@@ -6,7 +6,7 @@ import '../models/student_model.dart';
 
 class HomeController extends GetxController {
   var student =  StudentModel.empty().obs;
-  SharedPreference sharedPreference=Get.put(SharedPreference());
+  SharedPreference sharedPreference=Get.find();
 
   void addStudent()async{
     var result = await addData(StudentModel(name: "Student 1 ${DateTime.now().toString()}", roll: 1));
