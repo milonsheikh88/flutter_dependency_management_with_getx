@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dependency_management_with_getx/views/home_page.dart';
 import 'package:get/get.dart';
-import '../helper/int_controllers.dart' as di;
+import 'bindings/root_binding.dart';
 
 void main() async{
 
-  /// Initialize all controllers manually....
+  /** Initialize all controllers manually....*/
   WidgetsFlutterBinding.ensureInitialized();
-  await di.init();
+  RootBinding().dependencies();
 
   runApp(const MyApp());
 }
@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialBinding: RootBinding(),
       title: 'Flutter Dependency Management With GetX',
       theme: ThemeData(
         primarySwatch: Colors.blue,
